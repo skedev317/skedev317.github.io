@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     try {
       // reCAPTCHA トークンを取得
-      const recaptchaToken = await grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY', {action: 'contact_form'});
+      const recaptchaToken = await grecaptcha.execute('6LddAksqAAAAAJDHltDC77ZvJIVMprhYdpT4jI2A', {action: 'contact_form'});
 
       // トークンを隠しフィールドに設定
       document.getElementById('recaptchaToken').value = recaptchaToken;
 
       const formData = new FormData(form);
 
-      const response = await fetch('YOUR_API_GATEWAY_ENDPOINT', { // 実際のサーバーエンドポイントに置き換えてください
+      const response = await fetch('https://54oovip4eognqrctbibjwgud5a0codri.lambda-url.ap-northeast-1.on.aws/', { // 実際のサーバーエンドポイントに置き換えてください
         method: 'POST',
         body: formData
       });
