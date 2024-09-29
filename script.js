@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       grecaptcha.execute('6LddAksqAAAAAJVUSV4Nsgf4LFRHfqZb1UXyCRds', { action: 'contact_form' })
         .then(function (token) {
           const formData = new FormData(form);
-          formData.append('recaptcha_response', token);
+          formData.append('recaptcha_token', token);
 
           fetch('https://54oovip4eognqrctbibjwgud5a0codri.lambda-url.ap-northeast-1.on.aws', {
             method: 'POST',
