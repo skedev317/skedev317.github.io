@@ -135,3 +135,69 @@ textarea {
   }
 }
 
+.submit-btn.loading {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.submit-btn.loading:hover {
+  background: #d1d5db;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 既存のスタイルの後に以下を追加 */
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-out;
+  z-index: 1000;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup.hide {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.popup.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.popup.error {
+  background-color: #F44336;
+  color: white;
+}
+
+.popup-content {
+  display: flex;
+  align-items: center;
+}
+
+.popup-content i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 14px;
+}
