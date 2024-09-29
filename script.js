@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // reCAPTCHA v3のトークンを取得して送信する関数
   function getRecaptchaTokenAndSubmit() {
     grecaptcha.ready(function () {
-      grecaptcha.execute('6LddAksqAAAAAJVUSV4Nsgf4LFRHfqZb1UXyCRds', { action: 'contact_form' })
+      grecaptcha.execute('6LddAksqAAAAAJDHltDC77ZvJIVMprhYdpT4jI2A', { action: 'contact_form' })
         .then(function (token) {
           const formData = new FormData(form);
           formData.append('recaptcha_token', token);
