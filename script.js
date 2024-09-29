@@ -21,6 +21,29 @@ document.addEventListener('DOMContentLoaded', function () {
     submitButton.innerHTML = '送信する';
   }
 
+  function createPopup(type, message) {
+    const popup = document.createElement('div');
+    popup.className = `popup ${type}`;
+    popup.innerHTML = `
+      <div class="popup-content">
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+        <p>${message}</p>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+      popup.classList.add('hide');
+      popup.addEventListener('animationend', () => {
+        popup.remove();
+      });
+    }, 10000);
+  }
+
   // reCAPTCHA v3のトークンを取得して送信する関数
   function getRecaptchaTokenAndSubmit() {
     grecaptcha.ready(function () {
@@ -55,27 +78,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
-function createPopup(type, message) {
-  const popup = document.createElement('div');
-  popup.className = `popup ${type}`;
-  popup.innerHTML = `
-    <div class="popup-content">
-      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-      <p>${message}</p>
-    </div>
-  `;
-  document.body.appendChild(popup);
-
-  setTimeout(() => {
-    popup.classList.add('show');
-  }, 10);
-
-  setTimeout(() => {
-    popup.classList.add('hide');
-    popup.addEventListener('animationend', () => {
-      popup.remove();
-    });
-  }, 10000);
-}
-
